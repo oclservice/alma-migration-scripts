@@ -28,3 +28,18 @@ if(isNonBlank(value),value,cells['Chatham-ISSN-BIBs'].value)
 
 9. Create a Chatham title column based on the combined Chatham BIBs column with GREL
 forEach(cell.cross("Chatham records","BIB"),r,r.cells.Title.value).join("|")
+
+After the college has confirmed duplicates
+
+1. Reload duplicates file in OpenRefine
+2. Split multi valued cells in the Chatham BIBs
+3. **Fill down** the Windsor BIBs column (this will copy the Windsor BIB id for lines where there are multiple correspondances)
+4. Switch to row mode and reorder rows by Chatham BIB. Make the new sort permanent.
+5. **Blank down** the Chatham BIB column. This will blank all duplicate lines based on Chatham BIBs
+6. Facet by blank on Chatham BIB, then remove matching rows. This should remove all duplicates.
+7. Add a column based on Windsor BIB named Matchpoint with GREL "(dedup20211028)W" + cells['Windsor BIB'].value
+8. Export as CSV - this will be the file to feed to the Python routine
+
+
+
+Chatham record with bib ID 6393 needed to be manually fixed, as it had 100 with indicators 20 - converted to 10
