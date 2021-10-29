@@ -37,7 +37,7 @@ After the college has confirmed duplicates
 4. Switch to row mode and reorder rows by Chatham BIB. Make the new sort permanent.
 5. **Blank down** the Chatham BIB column. This will blank all duplicate lines based on Chatham BIBs
 6. Facet by blank on Chatham BIB, then remove matching rows. This should remove all duplicates.
-7. Add a column based on Windsor BIB named Matchpoint with GREL "(dedup20211028)W" + cells['Windsor BIB'].value
+7. Add a column based on Windsor BIB named Matchpoint with GREL "(Local)WCdedup1021" + cells['Windsor BIB'].value
 8. Export as CSV - this will be the file to feed to the Python routine
 
 
