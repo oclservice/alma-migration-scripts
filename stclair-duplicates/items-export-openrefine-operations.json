@@ -1,0 +1,138 @@
+[
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "852$x",
+    "expression": "grel:value.replace(/(?<!^)(\\|STA)/,';STA')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column 852$x using expression grel:value.replace(/(?<!^)(\\|STA)/,';STA')"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "852$x",
+    "keyColumnName": "001",
+    "mode": "separator",
+    "separator": ";",
+    "regex": false,
+    "description": "Split multi-valued cells in column 852$x"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "852$a",
+    "keyColumnName": "001",
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "description": "Split multi-valued cells in column 852$a"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "852$h",
+    "keyColumnName": "001",
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "description": "Split multi-valued cells in column 852$h"
+  },
+  {
+    "op": "core/multivalued-cell-split",
+    "columnName": "852$p",
+    "keyColumnName": "001",
+    "mode": "separator",
+    "separator": "|",
+    "regex": false,
+    "description": "Split multi-valued cells in column 852$p"
+  },
+  {
+    "op": "core/fill-down",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "001",
+    "description": "Fill down cells in column 001"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "852$x",
+    "expression": "grel:value.match(/.*STA=([^|]*).*/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "STA",
+    "columnInsertIndex": 6,
+    "description": "Create column STA at index 6 based on column 852$x using expression grel:value.match(/.*STA=([^|]*).*/)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "852$x",
+    "expression": "grel:value.match(/.*STD=([^|]*).*/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "STD",
+    "columnInsertIndex": 6,
+    "description": "Create column STD at index 6 based on column 852$x using expression grel:value.match(/.*STD=([^|]*).*/)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "852$x",
+    "expression": "grel:value.match(/.*DAT=([^|]*).*/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "DAT",
+    "columnInsertIndex": 6,
+    "description": "Create column DAT at index 6 based on column 852$x using expression grel:value.match(/.*DAT=([^|]*).*/)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "852$x",
+    "expression": "grel:value.match(/.*CAT=([^|]*).*/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "CAT",
+    "columnInsertIndex": 6,
+    "description": "Create column CAT at index 6 based on column 852$x using expression grel:value.match(/.*CAT=([^|]*).*/)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "852$x",
+    "expression": "grel:value.match(/.*IND=([^|]*).*/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "IND",
+    "columnInsertIndex": 6,
+    "description": "Create column IND at index 6 based on column 852$x using expression grel:value.match(/.*IND=([^|]*).*/)[0]"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "852$x",
+    "expression": "grel:value.match(/.*FUN=([^|]*).*/)[0]",
+    "onError": "set-to-blank",
+    "newColumnName": "FUN",
+    "columnInsertIndex": 6,
+    "description": "Create column FUN at index 6 based on column 852$x using expression grel:value.match(/.*FUN=([^|]*).*/)[0]"
+  }
+]

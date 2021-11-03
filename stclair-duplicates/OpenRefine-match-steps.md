@@ -43,3 +43,22 @@ After the college has confirmed duplicates
 
 
 Chatham record with bib ID 6393 needed to be manually fixed, as it had 100 with indicators 20 - converted to 10
+
+
+
+Items export
+
+Export CSV from MarcEdit with following settings:
+
+Separator: comma, in field delimiter: |
+
+Exported fields:
+
+001
+852$a
+852$d
+852$h
+852$p
+852$x
+
+Run items-export-openrefine-operations.json operations on both exports.
