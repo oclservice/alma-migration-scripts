@@ -1,0 +1,88 @@
+14,14,4,60,10,10,10,10,10,8,8,10,8,25,10,130,1,30,30,30,20,2,10,10,10,6,50
+student_id,group_id,title,name,library,profile,category1,category2,department,priv_granted,priv_expires,pin,birthdate,drivers_license,cell_phone,notes,mailingaddr,attn,line1,line2,city,province,postalcode,home_phone,work_phone,work_exten,email
+
+
+
+XML export template:
+
+
+ <user>
+     <primary_id>{{trim(cells["student_id"].value)}}</primary_id>
+     <first_name>{{trim(cells["name"].value.split(/, ?| /)[1])}}</first_name>
+     <middle_name>{{if(length(cells["name"].value.split(/, ?| /))>2,trim(cells["name"].value.split(/, ?| /)[2]),'')}}</middle_name>
+     <last_name>{{trim(cells["name"].value.split(/, ?| /)[0])}}</last_name>
+     <pin_number>{{trim(cells["pin"].value)}}</pin_number>
+     <user_title>{{trim(cells["title"].value)}}</user_title>
+     <user_group>{{trim(cells["group_id"].value)}}</user_group>
+     <campus_code>{{trim(cells["library"].value)}}</campus_code>
+     <birth_date>{{join(cells["birthdate"].value.splitByLengths(4,2,2),'-')}}</birth_date>
+     <expiry_date>{{join(cells["priv_expires"].value.splitByLengths(4,2,2),'-')}}</expiry_date>
+     <account_type>{{trim(cells["profile"].value)}}</account_type>
+     <contact_info>
+      <addresses>
+        <address preferred="true" segment_type="Internal">
+           <line1>{{trim(cells["attn"].value)}}</line1>
+           <line2>{{trim(cells["line1"].value)}}</line2>
+           <line3>{{trim(cells["line2"].value)}}</line3>
+           <city>{{trim(cells["city"].value)}}</city>
+           <state_province>{{trim(cells["province"].value)}}</state_province>
+           <postal_code>{{trim(cells["postalcode"].value)}}</postal_code>
+        </address>
+      </addresses>
+      <emails>
+        <email preferred="true" segment_type="Internal">
+          <email_address>{{trim(cells["email"].value)}}</email_address>
+        </email>
+      </emails>
+      <phones>
+        <phone preferred="false" preferred_sms="false" segment_type="Internal">
+          <phone_number>{{trim(cells["home_phone"].value)}}</phone_number>
+          <phone_types>
+            <phone_type>home</phone_type>
+          </phone_types>
+        </phone>
+        <phone preferred="false" preferred_sms="false" segment_type="Internal">
+          <phone_number>{{trim(cells["work_phone"].value)}}</phone_number>
+          <phone_types>
+            <phone_type>work</phone_type>
+          </phone_types>
+        </phone>
+        <phone preferred="false" preferred_sms="false" segment_type="Internal">
+          <phone_number>{{trim(cells["cell_phone"].value)}}</phone_number>
+          <phone_types>
+            <phone_type>cell</phone_type>
+          </phone_types>
+        </phone>
+      </phones>
+     </contact_info>
+     <user_notes>
+      <user_note segment_type="External">
+        <note_type>category1</note_type>
+        <note_text>{{trim(cells["category1"].value)}}</note_text>
+      </user_note>
+      <user_note segment_type="External">
+        <note_type>category2</note_type>
+        <note_text>{{trim(cells["category2"].value)}}</note_text>
+      </user_note>
+      <user_note segment_type="External">
+        <note_type>department</note_type>
+        <note_text>{{trim(cells["department"].value)}}</note_text>
+      </user_note>
+      <user_note segment_type="External">
+        <note_type>priv_granted</note_type>
+        <note_text>{{trim(cells["priv_granted"].value)}}</note_text>
+      </user_note>
+      <user_note segment_type="External">
+        <note_type>work_exten</note_type>
+        <note_text>{{trim(cells["work_exten"].value)}}</note_text>
+      </user_note>
+      <user_note segment_type="External">
+        <note_type>drivers_license</note_type>
+        <note_text>{{trim(cells["drivers_license"].value)}}</note_text>
+      </user_note>
+      <user_note segment_type="External">
+        <note_type>notes</note_type>
+        <note_text>{{trim(cells["notes"].value)}}</note_text>
+      </user_note>
+    </user_notes>
+ </user>
